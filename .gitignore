@@ -1,0 +1,8 @@
+node_modules/
+dist/
+*.tgz
+.gradle/
+build/
+.swiftpm/
+.build/
+Package.resolved

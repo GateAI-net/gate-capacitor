@@ -1,0 +1,44 @@
+{
+  "name": "@gateai/capacitor",
+  "version": "0.1.0",
+  "description": "Gate/AI capacitor SDK for iOS and Android",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src",
+    "ios",
+    "android/build.gradle",
+    "android/consumer-rules.pro",
+    "android/src",
+    "native",
+    "*.podspec",
+    "Package.swift",
+    "react-native.config.js",
+    "README.md",
+    "LICENSE",
+    "android/gate-core-version.gradle"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "prepack": "npm run build"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.2",
+    "@capacitor/core": "^8.0.0",
+    "@capacitor/android": "^8.5.2",
+    "@capacitor/ios": "^8.5.2"
+  },
+  "peerDependencies": {
+    "@capacitor/core": ">=7 <9"
+  },
+  "capacitor": {
+    "ios": {
+      "src": "ios"
+    },
+    "android": {
+      "src": "android"
+    }
+  }
+}
