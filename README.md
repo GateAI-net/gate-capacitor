@@ -82,7 +82,7 @@ The canonical bridge and JavaScript API live in `sdks/mobile-core`. The source m
 
 ## Android development tokens
 
-Use a development token when testing in an Android emulator. Without a token, the SDK attempts Play Integrity; running in an emulator does not bypass authentication. This applies to native Android, React Native, Capacitor, and Flutter apps.
+Use a development token when testing in an Android emulator. The development token lets your emulator app authenticate with Gate/AI without using Google Play Integrity. This applies to native Android, React Native, Capacitor, and Flutter apps.
 
 Create a development token for your gate in the portal, follow the setup below, then rebuild and reinstall your debug app. You do not need to pass the token in application code:
 
@@ -111,7 +111,7 @@ android {
 
 Sync Gradle, then rebuild and reinstall the debug app whenever the token changes. Android Studio builds must see the environment variable in the IDE's process; use the ignored local file if you normally launch the IDE from the Dock or launcher.
 
-The native SDK automatically reads the `gate_ai_dev_token` string resource. No token argument is needed in Kotlin, JavaScript, or Dart. A missing or blank token uses Play Integrity. Explicit `developmentToken` configuration remains supported in debug apps and takes precedence over the resource.
+The native SDK automatically reads the `gate_ai_dev_token` string resource. No token argument is needed in Kotlin, JavaScript, or Dart. If no token is configured, the SDK asks Google Play Integrity to verify the app and device instead. Explicit `developmentToken` configuration remains supported in debug apps and takes precedence over the resource.
 
 Keep the resource confined to the debug build type. This setup includes the token in the debug APK, but excludes it from release APKs/AABs. The SDK also ignores all development tokens in non-debuggable apps. Use the normal production Play Integrity setup for release builds; development tokens bypass attestation and should not be distributed.
 
