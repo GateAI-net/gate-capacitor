@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'GateAICapacitor'
-  s.version = '0.1.0'
+  s.version = '1.0.0'
   s.summary = 'Gate/AI capacitor SDK'
   s.homepage = 'https://gate-ai.net'
   s.license = { :type => 'MIT', :file => 'LICENSE' }
