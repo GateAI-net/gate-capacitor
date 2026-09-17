@@ -11,7 +11,7 @@
   "ios/Core/Core/GateAIRateLimitInfo.swift": "912c560b721f1219ce4bffca0f217502c979369b68e79056fcd017798352800c",
   "ios/Core/GateAI.swift": "c923be5689ffb005f2ec7dc7a4befb425faa827650519d82bdc428a744cb9ea4",
   "ios/Core/GateAIClient.swift": "ca3479be8d20390ba7fce7ec5145434cb0bc944acd9186c55cc4165bbab62757",
-  "ios/Core/GateAIVersion.swift": "ff5f0f911267938f0dfb00d7aedc4894a02053507a165dc110487900784bdf5a",
+  "ios/Core/GateAIVersion.swift": "a989692956a0385a4bc9b7da0f2e4e0a3f3b93a3c300bbb1c3cea23406d1cbbf",
   "ios/Core/GateMobileBridge.swift": "a36688650123ac2d85408bb8131dcb3cf3ace75fc32eed605e55fa31b55fcc2e",
   "ios/Core/Networking/GateAIHTTPClient.swift": "c652216d4eba1b707d82a37634b0b5b2cada9127272aca7674bf8319eaab2912",
   "ios/Core/Security/DPoPTokenBuilder.swift": "7c3bdc38e957d0a9acddc79fd02a646ffab7c978b42c2a40ac8b359dd83d344f",

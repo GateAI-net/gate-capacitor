@@ -7,5 +7,5 @@ import Foundation
 /// - Important: This value must be bumped on every release.
 public enum GateAIVersion {
     /// The current SDK version string.
-    public static let current = "1.1.0"
+    public static let current = "1.2.0"
 }
