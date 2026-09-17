@@ -3,6 +3,14 @@
   "version": "0.1.0",
   "description": "Gate/AI capacitor SDK for iOS and Android",
   "license": "MIT",
+  "homepage": "https://gate-ai.net",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GateAI-net/gate-capacitor.git"
+  },
+  "bugs": {
+    "url": "https://github.com/GateAI-net/gate-capacitor/issues"
+  },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -22,7 +30,8 @@
   ],
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "prepack": "npm run build"
+    "prepack": "npm run build",
+    "prepare": "npm run build"
   },
   "devDependencies": {
     "typescript": "^5.9.2",
