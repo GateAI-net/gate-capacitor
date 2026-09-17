@@ -82,7 +82,9 @@ The canonical bridge and JavaScript API live in `sdks/mobile-core`. The source m
 
 ## Android development tokens
 
-Create a development token for your gate in the portal. Keep it out of application code:
+Use a development token when testing in an Android emulator. Without a token, the SDK attempts Play Integrity; running in an emulator does not bypass authentication. This applies to native Android, React Native, Capacitor, and Flutter apps.
+
+Create a development token for your gate in the portal, follow the setup below, then rebuild and reinstall your debug app. You do not need to pass the token in application code:
 
 1. Set `GATE_AI_DEV_TOKEN` in the environment of the Gradle build, or create `gateai.local.properties` in the **Android Gradle root** (next to `settings.gradle` / `settings.gradle.kts`). For framework apps this is usually the app's `android/` directory.
 2. Add `gateai.local.properties` to your `.gitignore`. In that local file, set `GATE_AI_DEV_TOKEN=your-token` without quotes. An environment variable takes precedence, including an explicitly empty value.
