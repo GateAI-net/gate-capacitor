@@ -7,6 +7,7 @@ data class GateAIConfiguration(
     val baseUrl: String,
     val packageName: String,
     val signingCertSha256: String,
+    /** Optional debug-only override; otherwise reads the host app’s gate_ai_dev_token resource. */
     val developmentToken: String? = null,
     val cloudProjectNumber: Long? = null,
     val logLevel: LogLevel = LogLevel.INFO,

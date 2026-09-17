@@ -6,6 +6,7 @@ export interface GateAIConfiguration {
     signingCertSha256: string;
     /** Decimal string to preserve all digits across the native bridge. */
     cloudProjectNumber?: string;
+    /** Optional debug-only override. Otherwise the native SDK reads gate_ai_dev_token. */
     developmentToken?: string;
     deviceIdentifierEnabled?: boolean;
   };

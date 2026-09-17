@@ -42,7 +42,7 @@ class PlayIntegrityManager(
                 "2. Play Integrity API not enabled in Google Cloud Console\n" +
                 "3. Google Play Services not available or outdated\n" +
                 "4. App not approved for Play Integrity yet\n\n" +
-                "For testing, use developmentToken in GateAIConfiguration to bypass Play Integrity.",
+                "For testing, configure the debug-only gate_ai_dev_token string resource to bypass Play Integrity.",
                 throwable
             )
         }

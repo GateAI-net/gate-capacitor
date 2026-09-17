@@ -52,7 +52,7 @@ await client.dispose();
 ## Native setup
 
 - iOS 16+, Xcode 16+, and an Apple Team ID. Enable App Attest for the app identifier and add the `com.apple.developer.devicecheck.appattest-environment` entitlement. Configure the matching bundle ID and team in the Gate/AI portal. Physical devices use App Attest; simulators use `GATE_AI_DEV_TOKEN` set in the Xcode Run scheme's environment. An iOS development token is intentionally not accepted through JavaScript or Dart.
-- Android API 24+, Java 17 or the higher version required by your framework, and Kotlin 2.0.20+. Register the application package and signing certificate SHA-256 in the portal; configure Play Integrity and supply the linked Google Cloud project number as a **decimal string**. `android.developmentToken` is for debug builds only; the native SDK ignores it in non-debuggable builds. Device identifier analytics are opt-in (`deviceIdentifierEnabled`, default false).
+- Android API 24+, Java 17 or the higher version required by your framework, and Kotlin 2.0.20+. Register the application package and signing certificate SHA-256 in the portal; configure Play Integrity and supply the linked Google Cloud project number as a **decimal string**. Debug builds automatically read the host app’s `gate_ai_dev_token` resource; configure it using the steps below. Device identifier analytics are opt-in (`deviceIdentifierEnabled`, default false).
 - Supply configuration for both platforms in a shared app. Only the current platform's native settings are used. Never embed provider API keys. Use opaque IDs for `userIdentifier`.
 
 ## Requests and errors
@@ -79,3 +79,38 @@ python3 sdks/scripts/sync-mobile-sdks.py --check
 ```
 
 The canonical bridge and JavaScript API live in `sdks/mobile-core`. The source manifest in `native/sources.json` records hashes. Do not install the standalone Android Gate/AI SDK alongside this package because its classes are already bundled.
+
+## Android development tokens
+
+Create a development token for your gate in the portal. Keep it out of application code:
+
+1. Set `GATE_AI_DEV_TOKEN` in the environment of the Gradle build, or create `gateai.local.properties` in the **Android Gradle root** (next to `settings.gradle` / `settings.gradle.kts`). For framework apps this is usually the app's `android/` directory.
+2. Add `gateai.local.properties` to your `.gitignore`. In that local file, set `GATE_AI_DEV_TOKEN=your-token` without quotes. An environment variable takes precedence, including an explicitly empty value.
+3. Add the following configuration to the **host app module's** build file, merging it into any existing `android` / `buildTypes` blocks. Do not put it in the SDK library's build file or `defaultConfig`.
+
+```groovy
+// app/build.gradle — place after plugins { ... }
+def gateAILocalProperties = new Properties()
+def gateAILocalFile = rootProject.file("gateai.local.properties")
+if (gateAILocalFile.exists()) {
+    gateAILocalFile.withInputStream { gateAILocalProperties.load(it) }
+}
+def gateAIDevToken = providers.environmentVariable("GATE_AI_DEV_TOKEN")
+    .orElse(gateAILocalProperties.getProperty("GATE_AI_DEV_TOKEN", ""))
+
+android {
+    buildTypes {
+        debug {
+            resValue "string", "gate_ai_dev_token", gateAIDevToken.get()
+        }
+    }
+}
+```
+
+Sync Gradle, then rebuild and reinstall the debug app whenever the token changes. Android Studio builds must see the environment variable in the IDE's process; use the ignored local file if you normally launch the IDE from the Dock or launcher.
+
+The native SDK automatically reads the `gate_ai_dev_token` string resource. No token argument is needed in Kotlin, JavaScript, or Dart. A missing or blank token uses Play Integrity. Explicit `developmentToken` configuration remains supported in debug apps and takes precedence over the resource.
+
+Keep the resource confined to the debug build type. This setup includes the token in the debug APK, but excludes it from release APKs/AABs. The SDK also ignores all development tokens in non-debuggable apps. Use the normal production Play Integrity setup for release builds; development tokens bypass attestation and should not be distributed.
+
+See the [Android development token guide](https://portal.gate-ai.net/docs/android#android-dev-token) for both Kotlin DSL and Groovy examples. iOS continues to use `GATE_AI_DEV_TOKEN` in the Xcode Run scheme; see the [iOS simulator setup](https://portal.gate-ai.net/docs/ios#dev-mode).

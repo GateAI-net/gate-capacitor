@@ -432,16 +432,16 @@ class GateAIClient internal constructor(
             // build, drop it and fall back to real attestation rather than silently shipping
             // an attestation bypass.
             val isDebuggable = (context.applicationInfo.flags and ApplicationInfo.FLAG_DEBUGGABLE) != 0
-            val effectiveConfiguration = if (configuration.developmentToken != null && !isDebuggable) {
+            if (configuration.developmentToken != null && !isDebuggable) {
                 logger.error(
                     "developmentToken is set in a non-debuggable (release) build and will be ignored. " +
                         "Dev tokens bypass Play Integrity attestation and must never ship in a release build; " +
-                        "supply it only via a debug-only BuildConfig field."
+                        "configure it only through a debug-only gate_ai_dev_token resource."
                 )
-                configuration.copy(developmentToken = null)
-            } else {
-                configuration
             }
+            val effectiveConfiguration = configuration.copy(
+                developmentToken = DevelopmentTokenResolver.resolve(context, configuration.developmentToken)
+            )
 
             val deviceKeyManager = DeviceKeyManager.create(context)
             val httpClient = GateHttpClient(effectiveConfiguration, logger)
@@ -521,4 +521,3 @@ internal object Signer {
         return com.gateai.sdk.util.EcdsaSigner.sign(privateKey, data)
     }
 }
-

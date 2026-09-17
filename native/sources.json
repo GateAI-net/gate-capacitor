@@ -1,6 +1,6 @@
 {
   "android/consumer-rules.pro": "2e69cd33ccc5cd09766246ad2760644c427d17b2ec120bfc96b80a7b759b20da",
-  "android/gate-core-version.gradle": "3e58721578e39c7f0e3077724c15f3c16c265ca3f977641235fd7a84a5e03370",
+  "android/gate-core-version.gradle": "3164916dc9a8b1fec69798ad7001cbe1e584dee250641f8f274ebfe7654c7108",
   "ios/Core/Attestation/AppAttestProviding.swift": "c7da9e71b46260da18dffb088f418d617f59515fec9dc49611a3ec24b8b140fe",
   "ios/Core/Attestation/AppAttestService.swift": "6d07de4ddf4f4a8ba61c031f649f6032b2ec7f5a464b085386e3ec67de1f890e",
   "ios/Core/Auth/AuthAPIClient.swift": "667b120043ff3e0681f5efa759abb93e69937766e72a81b16a40a074898a9f4b",
@@ -27,14 +27,15 @@
   "ios/Core/Utilities/String+Base64URL.swift": "0abdb69a8f45551e4865447b206c517f32dd78b5d46a38ef1ea724943d6593a3",
   "native/android/com/gateai/mobile/GateMobileBridge.kt": "e5e0f20d80ddd2f9093a73085fa4b4d16ca9190dff7bc36b6ce31accd3f8e5f4",
   "native/android/com/gateai/sdk/auth/AuthApiClient.kt": "d12f9ba55ba4c2f484cf18cb0d5376f8ea4e5324f39592557a59b88448d12aa5",
-  "native/android/com/gateai/sdk/core/GateAIClient.kt": "a3555f5d66732675a7777773d0f21747e4e3f3a68d8bd5cecb013f765ec3ea9b",
-  "native/android/com/gateai/sdk/core/GateAIConfiguration.kt": "863ea9e347e6a98fd44dad21c6e1c443477c6294c55a92f824e0bf2ca718e53f",
+  "native/android/com/gateai/sdk/core/DevelopmentTokenResolver.kt": "cb57196598891a895f71730147cf1c532cc01c5976dde29bd45a5f4ceb33b54b",
+  "native/android/com/gateai/sdk/core/GateAIClient.kt": "6d4f70e4bbaf372de4ba524a9f5a1c3a401c332d4dc7635bf860fe0ca9ffd499",
+  "native/android/com/gateai/sdk/core/GateAIConfiguration.kt": "85eb30e388a9ed94431a4a8788add9b9daab1fb5605f6cc9360befd2b91d1ae3",
   "native/android/com/gateai/sdk/logging/GateLogger.kt": "916de05779cbf4832a6794ed6ae91f8e22c7e1ebda99f8f8811ff667943e7836",
   "native/android/com/gateai/sdk/network/GateApiException.kt": "4d8ee3119fe4859c62d40db23e20add47429796f706f04a750f67e7cdb393705",
   "native/android/com/gateai/sdk/network/GateHttpClient.kt": "073411e656b351d421a45c18816bc208d9f8aa05878d39c4628c8f02bead5253",
   "native/android/com/gateai/sdk/network/QuotaStatus.kt": "d6debcefc1fc42c802c92cba2e1da18894b44a63138a0db0b03c7d7d1a33e1c2",
   "native/android/com/gateai/sdk/network/RateLimitInfo.kt": "d2b7a9c48b09b37623ca465f1e32083e6a635e1a61c91dcb2375ccf4f394bcff",
-  "native/android/com/gateai/sdk/playintegrity/PlayIntegrityManager.kt": "f6f6ec6d0cebf76cd82ce578cf89f6d6d718903da6d4ed39b622de4aae699233",
+  "native/android/com/gateai/sdk/playintegrity/PlayIntegrityManager.kt": "85069ffc611d4fb5e501531d2c82fe770e56edafaa7b2f29b7d7f58f80de37d7",
   "native/android/com/gateai/sdk/security/DeviceKeyManager.kt": "cc605d2c52ad42bdb2472ae46dce5b27d8a5655041783befd36324a9bf3dcadf",
   "native/android/com/gateai/sdk/util/AnalyticsHeaders.kt": "f708025d4305a3ea4238019f4df760042389eaf2b935cd9dfa6caf2b4552cf4c",
   "native/android/com/gateai/sdk/util/Base64Url.kt": "aad359e68177cf3bcd1bd3b540b0244535e8aa124b16d2246f9a1aa40ab6ebf8",
@@ -42,5 +43,5 @@
   "native/android/com/gateai/sdk/util/Iso8601.kt": "dd58d8051e2ccbc6213e59fd87f49c8dd5cc5811ec9a098c63d0455a677a3a51",
   "native/android/com/gateai/sdk/util/JwtSigner.kt": "c996cd9683d8ad18bad49aaf08cd880f0bffe2ac21bac8a72d850b756df28e6f",
   "native/android/com/gateai/sdk/util/TimeProvider.kt": "926dc5fb1d32475fb4b489200fd0d450e80ed76b47f0c6ca05106ef1f5671153",
-  "src/client.ts": "2dbafa18b2faa0d7cd425bcd7e85af85e5442c14df28b1104d43b60637fc5081"
+  "src/client.ts": "ae5f8043e7f40d62008597fb8157f5bb509e491e072c8f1a629bd72763c6568c"
 }
